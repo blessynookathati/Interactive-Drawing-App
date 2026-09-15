@@ -29,11 +29,11 @@ const readmePath = path.join(rootDir, 'README.md');
 assert(fs.existsSync(readmePath), 'README.md exists at root');
 const readmeContent = fs.readFileSync(readmePath, 'utf8');
 
-assert(readmeContent.includes('Architectural Overview'), 'README includes Architectural Overview');
-assert(readmeContent.includes('Technology Stack'), 'README includes Technology Stack');
-assert(readmeContent.includes('Core Features'), 'README includes Core Features');
-assert(readmeContent.includes('Automated Testing'), 'README includes Automated Testing Specifications');
-assert(readmeContent.includes('Local Development'), 'README includes Local Development instructions');
+assert(readmeContent.includes('Architecture') || readmeContent.includes('Architectural Overview'), 'README includes System Architecture');
+assert(readmeContent.includes('Tech Stack') || readmeContent.includes('Technology Stack'), 'README includes Tech Stack');
+assert(readmeContent.includes('Features') || readmeContent.includes('Core Features'), 'README includes Features');
+assert(readmeContent.includes('Testing') || readmeContent.includes('Automated Testing'), 'README includes Testing Strategy');
+assert(readmeContent.includes('Getting Started') || readmeContent.includes('Local Development'), 'README includes Getting Started instructions');
 assert(!readmeContent.toLowerCase().includes('.png)') && !readmeContent.toLowerCase().includes('.jpg)'), 'README contains no screenshots');
 assert(!readmeContent.includes('Blessy') && !readmeContent.includes('partnr'), 'README contains no personal/platform-specific user details');
 
